@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Métricas de Marketing</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #f9f9f9; }
+    .tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+    .tab-button { padding: 10px 15px; background: #007bff; color: white; border: none; cursor: pointer; border-radius: 5px; }
+    .tab-button.active { background: #0056b3; }
+    .tab-content { display: none; padding: 20px; background: white; border: 1px solid #ccc; border-radius: 5px; }
+    .tab-content.active { display: block; }
+    input[type="number"] { margin: 5px 0; padding: 5px; width: 200px; }
+    label { font-weight: bold; display: block; margin-top: 10px; }
+    .result { margin-top: 15px; font-size: 1.2em; color: green; }
+  </style>
+</head>
+<body>
+
+<h1>Métricas de Marketing Digital</h1>
+<div class="tabs">
+  <button class="tab-button" onclick="showTab('cpm')">CPM</button>
+  <button class="tab-button" onclick="showTab('ctr')">CTR</button>
+  <button class="tab-button" onclick="showTab('cpc')">CPC</button>
+  <button class="tab-button" onclick="showTab('roas')">ROAS</button>
+  <button class="tab-button" onclick="showTab('cpa')">CPA</button>
+  <button class="tab-button" onclick="showTab('cpi')">CPI</button>
+  <button class="tab-button" onclick="showTab('cpv')">CPV</button>
+  <button class="tab-button" onclick="showTab('vtr')">VTR</button>
+</div>
+
+<div id="cpm" class="tab-content">
+  <h2>📊 CPM (Costo por mil impresiones)</h2>
+  <p>Indica cuánto cuesta cada mil impresiones de un anuncio.</p>
+  <p><strong>Fórmula:</strong> CPM = (Costo / Impresiones) * 1000</p>
+  <label for="costoCpm">Costo total ($):</label>
+  <input type="number" id="costoCpm">
+  <label for="impresionesCpm">Impresiones:</label>
+  <input type="number" id="impresionesCpm">
+  <div class="result" id="resultadoCpm"></div>
+</div>
+
+<div id="ctr" class="tab-content">
+  <h2>🔁 CTR (Click-Through Rate)</h2>
+  <p>Representa el porcentaje de clics recibidos respecto a las impresiones.</p>
+  <p><strong>Fórmula:</strong> CTR = (Clics / Impresiones) * 100</p>
+  <label for="clicsCtr">Clics:</label>
+  <input type="number" id="clicsCtr">
+  <label for="impresionesCtr">Impresiones:</label>
+  <input type="number" id="impresionesCtr">
+  <div class="result" id="resultadoCtr"></div>
+</div>
+
+<div id="cpc" class="tab-content">
+  <h2>💰 CPC (Costo por Clic)</h2>
+  <p>Cuánto cuesta cada clic generado por un anuncio.</p>
+  <p><strong>Fórmula:</strong> CPC = Costo / Clics</p>
+  <label for="costoCpc">Costo total ($):</label>
+  <input type="number" id="costoCpc">
+  <label for="clicsCpc">Clics:</label>
+  <input type="number" id="clicsCpc">
+  <div class="result" id="resultadoCpc"></div>
+</div>
+
+<div id="roas" class="tab-content">
+  <h2>📈 ROAS (Return on Ad Spend)</h2>
+  <p>Evalúa el retorno sobre la inversión publicitaria.</p>
+  <p><strong>Fórmula:</strong> ROAS = Ingresos / Gasto</p>
+  <label for="ingresosRoas">Ingresos ($):</label>
+  <input type="number" id="ingresosRoas">
+  <label for="gastoRoas">Gasto ($):</label>
+  <input type="number" id="gastoRoas">
+  <div class="result" id="resultadoRoas"></div>
+</div>
+
+<div id="cpa" class="tab-content">
+  <h2>📉 CPA (Costo por Adquisición)</h2>
+  <p>Representa cuánto cuesta obtener una conversión.</p>
+  <p><strong>Fórmula:</strong> CPA = Costo / Conversiones</p>
+  <label for="costoCpa">Costo total ($):</label>
+  <input type="number" id="costoCpa">
+  <label for="conversionesCpa">Conversiones:</label>
+  <input type="number" id="conversionesCpa">
+  <div class="result" id="resultadoCpa"></div>
+</div>
+
+<div id="cpi" class="tab-content">
+  <h2>📲 CPI (Costo por Instalación)</h2>
+  <p>Cuánto cuesta conseguir que un usuario instale una app.</p>
+  <p><strong>Fórmula:</strong> CPI = Costo / Instalaciones</p>
+  <label for="costoCpi">Costo total ($):</label>
+  <input type="number" id="costoCpi">
+  <label for="instalacionesCpi">Instalaciones:</label>
+  <input type="number" id="instalacionesCpi">
+  <div class="result" id="resultadoCpi"></div>
+</div>
+
+<div id="cpv" class="tab-content">
+  <h2>📺 CPV (Costo por Visualización)</h2>
+  <p>Indica cuánto se paga por cada visualización de video.</p>
+  <p><strong>Fórmula:</strong> CPV = Costo / Visualizaciones</p>
+  <label for="costoCpv">Costo total ($):</label>
+  <input type="number" id="costoCpv">
+  <label for="visualizacionesCpv">Visualizaciones:</label>
+  <input type="number" id="visualizacionesCpv">
+  <div class="result" id="resultadoCpv"></div>
+</div>
+
+<div id="vtr" class="tab-content">
+  <h2>👀 VTR (View-Through Rate)</h2>
+  <p>Porcentaje de personas que completaron un video respecto a las que lo vieron inicialmente.</p>
+  <p><strong>Fórmula:</strong> VTR = (Visualizaciones / Impresiones) * 100</p>
+  <label for="visualizacionesVtr">Visualizaciones completas:</label>
+  <input type="number" id="visualizacionesVtr">
+  <label for="impresionesVtr">Impresiones:</label>
+  <input type="number" id="impresionesVtr">
+  <div class="result" id="resultadoVtr"></div>
+</div>
+
+<script src="main.js"></script>
+
+<script>
+  const showTab = (id) => {
+    document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
